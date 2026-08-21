@@ -8,7 +8,8 @@ Kanalinsikter är en statisk webbapp för att analysera Facebook- och Instagram-
 - separata normalvärden för Facebook och Instagram
 - 70/30-modell för räckvidd och engagemang
 - manuella markeringar för Instagram Collab, eget organiskt och marknadsfört
-- export av Excelrapport, normaliserad CSV, kanalinsikter och ändringslogg
+- export av en fullständig Excelrapport med 11 flikar, 40 analysfält, månadsutveckling och två grafer
+- export av normaliserad CSV, kanalinsikter och ändringslogg
 - export/import av manuella regler mellan månader
 
 ## Publicering
@@ -20,6 +21,6 @@ Repositoryt publiceras till GitHub Pages genom workflow-filen i `.github/workflo
 - en aktuell Facebookfil och en aktuell Instagramfil laddas upp
 - separata månadsfiler slås ännu inte ihop automatiskt
 - Instagramdistribution måste verifieras manuellt när exporten saknar sponsringsuppgift
-- Excelrapporten innehåller tabeller och nyckeltal men inte samma redigerbara diagramobjekt som originalarbetsboken
+- Graferna i Excelrapporten bäddas in som tydliga bilder. De följer med i filen men är inte redigerbara Excel-diagramobjekt.
 
 Det tidigare Evenemangsguiden-verktyget finns bevarat som `evenemangsguiden.html`.
