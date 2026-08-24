@@ -6,8 +6,9 @@
   <meta name="description" content="Analysera Meta-exporter lokalt och skapa kanalinsikter för Visit Eskilstuna.">
   <title>Kanalinsikter – Visit Eskilstuna</title>
   <link rel="stylesheet" href="styles.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/papaparse@5.5.3/papaparse.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+  <link rel="stylesheet" href="channel-separation.css">
+  <script defer src="papaparse.min.js"></script>
+  <script defer src="exceljs.min.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body>
@@ -24,7 +25,9 @@
     <section class="panel hidden" id="reviewPanel">
       <div class="section-heading"><div><p class="step-label">STEG 2</p><h2>Kontrollera analysen</h2></div><span class="status-badge" id="analysisStatus">Kontrollerar</span></div>
       <div class="quality-grid" id="qualityGrid"></div><div class="kpi-grid" id="kpiGrid"></div>
-      <div class="review-layout"><div><div class="subheading"><h3>Format och organisk prestation</h3><span>Medianvärden</span></div><div class="table-wrap"><table id="formatTable"><thead><tr><th>Kanal</th><th>Format</th><th>Antal</th><th>Räckvidd</th><th>Engagemang</th></tr></thead><tbody></tbody></table></div></div><div class="settings-card"><h3>Målmodell</h3><label>Räckvidd <output id="reachWeightOutput">70 %</output><input id="reachWeight" type="range" min="0" max="100" value="70"></label><label>Engagemang <output id="engagementWeightOutput">30 %</output></label><p>Vikterna används i målpoängen och dokumenteras i exporten.</p></div></div>
+      <div class="subheading"><h3>Format och organisk prestation</h3><span>Medianvärden per kanal</span></div>
+      <div class="channel-comparison"><section class="channel-panel facebook-panel"><div class="channel-heading"><span class="channel-dot">f</span><h3>Facebook</h3></div><div class="table-wrap"><table id="facebookFormatTable"><thead><tr><th>Format</th><th>Antal</th><th>Räckvidd</th><th>Engagemang</th></tr></thead><tbody></tbody></table></div></section><section class="channel-panel instagram-panel"><div class="channel-heading"><span class="channel-dot">◎</span><h3>Instagram</h3></div><div class="table-wrap"><table id="instagramFormatTable"><thead><tr><th>Format</th><th>Antal</th><th>Räckvidd</th><th>Engagemang</th></tr></thead><tbody></tbody></table></div></section></div>
+      <div class="preview-bottom"><div><div class="subheading"><h3>Toppinlägg per kanal</h3><span>Målpoäng: räckvidd + engagemang</span></div><div class="channel-comparison"><section class="channel-panel facebook-panel"><div class="channel-heading"><span class="channel-dot">f</span><h3>Facebook – topp 5</h3></div><div class="table-wrap"><table id="facebookTopTable"><thead><tr><th>Datum</th><th>Format</th><th>Räckvidd</th><th>Poäng</th></tr></thead><tbody></tbody></table></div></section><section class="channel-panel instagram-panel"><div class="channel-heading"><span class="channel-dot">◎</span><h3>Instagram – topp 5</h3></div><div class="table-wrap"><table id="instagramTopTable"><thead><tr><th>Datum</th><th>Format</th><th>Räckvidd</th><th>Poäng</th></tr></thead><tbody></tbody></table></div></section></div></div><div class="settings-card"><h3>Målmodell</h3><label>Räckvidd <output id="reachWeightOutput">70 %</output><input id="reachWeight" type="range" min="0" max="100" value="70"></label><label>Engagemang <output id="engagementWeightOutput">30 %</output></label><p>Vikterna används i målpoängen och dokumenteras i exporten.</p></div></div>
       <div class="subheading corrections-heading"><div><h3>Distribution som behöver verifieras</h3><p>Instagram saknar ofta säker uppgift om annonser och Collab.</p></div><div class="inline-actions"><button class="secondary" id="importRulesButton" type="button">Importera regler</button><input class="hidden" id="rulesFile" type="file" accept=".json,application/json"><button class="secondary" id="exportRulesButton" type="button">Spara regler</button></div></div>
       <div class="table-wrap corrections"><table id="correctionsTable"><thead><tr><th>Inlägg</th><th>Datum</th><th>Räckvidd</th><th>Distribution</th><th>Partner</th></tr></thead><tbody></tbody></table></div><p class="empty-note" id="correctionsNote"></p>
     </section>
